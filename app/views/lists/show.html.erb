@@ -8,16 +8,19 @@
 </div>
 
 <div class="container">
+
   <h2><%= @list.name %></h2>
-  <div class="card-deck">
+  <div class="movie-wrapper">
     <% @list.movies.each do |movie| %>
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=<%= movie.poster_url %> alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"><%= movie.title %></h5>
-          <p class="card-text"><%= movie.overview %></p>
-          <p class="card-text"><%= movie.rating %></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="card-movie">
+        <img src=<%= movie.poster_url %> alt="Movie poster" />
+        <div class="card-movie-info">
+          <div>
+            <h2><%= movie.title %></h2>
+            <p><%= movie.overview %></p>
+          </div>
+          <h2 class="card-movie-rating"><%= movie.rating %></h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-movie-icon avatar-bordered" />
         </div>
       </div>
     <% end %>
