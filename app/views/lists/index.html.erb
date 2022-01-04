@@ -1,22 +1,46 @@
 <div class="sticky-top">
-  <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
       MyCinema
     </a>
-    <%= link_to "Create a new list", new_list_path, :class => 'btn btn-outline-light my-2 my-sm-0' %>
+    <%= link_to "New list", new_list_path, class: 'btn my-2 my-sm-0' %>
 </nav>
 </div>
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1325&q=80);">
   <div class="container">
-    <h1>My Movie Lists</h1>
+      <h1>Save any kind of movies</h1>
+      <h3>Classic</h3>
   </div>
 </div>
 
-<div class="container">
-  <% @lists.each do |list| %>
-    <div class="list-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path list.image.key, height: 300, crop: :fill %>')">
-      <%= link_to list.name, list_path(list), :class => 'list-title' %>
+<div class="container p-5">
+  <div class="d-flex justify-content-between">
+    <h2>My lists</h2>
+    <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>
     </div>
-  <% end %>
+</div>
+
+<div class="container">
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path list.image.key, height: 300, crop: :fill %>')">
+        <%= link_to list.name, list_path(list), :class => 'list-title' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="footer m-3">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
 </div>
